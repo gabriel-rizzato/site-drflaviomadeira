@@ -690,7 +690,20 @@
                 if (!valid) return;
 
                 const texto = `Olá, Dr. Flávio!\n\n*Nome:* ${nomeVal}\n*Telefone:* ${telVal}\n*Motivo:* ${motivoVal}\n*Mensagem:* ${msgVal || '—'}\n\nEnviado pelo site.`;
-                const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+
+                const _trackingKeys = ['gclid', 'fbclid', 'ttclid', 'msclkid'];
+                const _urlParams = new URLSearchParams(window.location.search);
+                let _rawId = null;
+                for (const k of _trackingKeys) {
+                    const v = _urlParams.get(k) || localStorage.getItem(k);
+                    if (v) { _rawId = v; break; }
+                }
+                const ticket = _rawId && _rawId.length > 26
+                    ? _rawId.slice(26, 32).toUpperCase()
+                    : null;
+                const textoFinal = ticket ? `${texto}\n*id: ${ticket}*` : texto;
+
+                const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(textoFinal)}`;
 
                 const submitBtn = document.getElementById('wa-submit');
                 submitBtn.innerHTML = `<svg class="animate-spin w-5 h-5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.3"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg> Abrindo...`;
