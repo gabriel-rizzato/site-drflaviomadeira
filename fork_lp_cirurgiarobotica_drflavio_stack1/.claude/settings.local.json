@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\Samsung\\\\Documents\\\\projetos_desenvolvidos\\\\github_projetos\\\\lp_cirurgiarobotica_drflavio\\\\11 - site-drflavio_metaia_v2.html\" \"C:\\\\Users\\\\Samsung\\\\Documents\\\\projetos_desenvolvidos\\\\github_projetos\\\\lp_cirurgiarobotica_drflavio\\\\12 - site-drflavio_metaia_v2.html\")",
+      "Bash(echo \"exit: $?\")",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\Samsung\\\\Documents\\\\projetos_desenvolvidos\\\\github_projetos\\\\lp_cirurgiarobotica_drflavio\\\\12 - site-drflavio_metaia_v2.html\" \"C:\\\\Users\\\\Samsung\\\\Documents\\\\projetos_desenvolvidos\\\\github_projetos\\\\lp_cirurgiarobotica_drflavio\\\\13 - site-drflavio_metaia_v2.html\")",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

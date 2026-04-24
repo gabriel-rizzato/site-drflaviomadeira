@@ -1,0 +1,62 @@
+{
+  "icon-consultas.svg": {
+    "id": "icon-consultas",
+    "usage": "",
+    "size": 238
+  },
+  "icon-exames.svg": {
+    "id": "icon-exames",
+    "usage": "",
+    "size": 294
+  },
+  "icon-cirurgias.svg": {
+    "id": "icon-cirurgias",
+    "usage": "",
+    "size": 226
+  },
+  "icon-check.svg": {
+    "id": "icon-check",
+    "usage": "",
+    "size": 191
+  },
+  "icon-arrow-right.svg": {
+    "id": "icon-arrow-right",
+    "usage": "",
+    "size": 197
+  },
+  "icon-whatsapp.svg": {
+    "id": "icon-whatsapp",
+    "usage": "",
+    "size": 936
+  },
+  "icon-phone.svg": {
+    "id": "icon-phone",
+    "usage": "",
+    "size": 415
+  },
+  "icon-location.svg": {
+    "id": "icon-location",
+    "usage": "",
+    "size": 253
+  },
+  "icon-mail.svg": {
+    "id": "icon-mail",
+    "usage": "",
+    "size": 280
+  },
+  "icon-menu.svg": {
+    "id": "icon-menu",
+    "usage": "",
+    "size": 175
+  },
+  "icon-clock.svg": {
+    "id": "icon-clock",
+    "usage": "",
+    "size": 197
+  },
+  "icon-user-md.svg": {
+    "id": "icon-user-md",
+    "usage": "",
+    "size": 250
+  }
+}
