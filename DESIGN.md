@@ -54,3 +54,26 @@ bg-slate-50 rounded-xl p-4 border border-slate-100
 
 ## CTA principal
 Todo botão de agendamento chama `onclick="openWaModal()"` — abre modal de WhatsApp.
+
+### Botão flutuante WhatsApp
+```html
+fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40
+w-[60px] h-[60px] sm:w-[64px] sm:h-[64px] bg-[#25D366] rounded-full
+shadow-[0_8px_24px_rgba(37,211,102,0.35)]
+```
+- Anel de ping: `animate-ping opacity-30`
+- Tooltip: aparece à esquerda com `group-hover:opacity-100` (desktop só)
+
+### Modal WhatsApp
+```
+z-[100] — backdrop blur-[6px] bg-slate-900/60
+Dialog: sm:max-w-[440px] sm:rounded-[28px] rounded-t-[28px]
+Header: bg-gradient-to-b from-[#0a66c2] to-[#0a5bb0]
+Inputs: h-[46px] rounded-xl bg-slate-50 border-slate-200
+  focus: border-[#0a66c2] ring-4 ring-[#0a66c2]/10
+  erro: !border-red-500 !ring-red-500/10 !bg-red-50/50
+Botão enviar: bg-[#25D366] h-[46px] rounded-xl
+```
+- Animação de abertura: `modal-enter` → `modal-enter-active` (300ms cubic-bezier)
+- Animação de fechamento: `modal-leave-active` (200ms)
+- Máscara de telefone aplicada via JS no evento `input`
