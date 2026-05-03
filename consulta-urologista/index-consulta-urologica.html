@@ -1,40 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Flávio Madeira - Urologista em Goiânia | Consulta Particular Online e Presencial</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+<!-- LP Consulta Urologista — embed WordPress/Elementor — by Gabriel Rizzato -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: { primary: '#0a66c2', darkblue: '#0a2540' },
+                fontFamily: { sans: ['Inter', 'sans-serif'] }
+            }
         }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #0a66c2, #0a2540);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
-</head>
-<body id="lp-flavio" class="bg-white text-gray-800 antialiased">
+    }
+</script>
+<style>
+    #lp-consulta {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    #lp-consulta .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    #lp-consulta .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    #lp-consulta .gradient-text {
+        background: linear-gradient(90deg, #0a66c2, #0a2540);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .modal-enter { opacity: 0; transform: translateY(16px) scale(0.96); }
+    .modal-enter-active { opacity: 1; transform: translateY(0) scale(1); transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1); }
+    .modal-leave-active { opacity: 0; transform: translateY(16px) scale(0.96); transition: all 200ms cubic-bezier(0.4, 0, 1, 1); }
+    select { background-image: none; }
+    @media (prefers-reduced-motion: reduce) {
+        #lp-consulta .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+</style>
+
+<div id="lp-consulta" class="bg-white text-gray-800 antialiased" style="width:100vw;position:relative;margin-left:calc(-50vw + 50%);overflow-x:clip;">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-[72px]">
                 <div class="flex items-center gap-3">
@@ -44,11 +57,11 @@
                         <p class="text-xs text-gray-500 leading-tight">CRM 9165/GO • RQE 5858 • Urologista</p>
                     </div>
                 </div>
-                <button onclick="openModal()" class="hidden sm:inline-flex items-center gap-2 bg-[#0a66c2] hover:bg-[#0854a0] text-white font-semibold px-5 py-2.5 rounded-full transition-all duration-300 shadow-md shadow-blue-200 hover:shadow-lg hover:shadow-blue-300">
+                <button onclick="openWaModal()" class="hidden sm:inline-flex items-center gap-2 bg-[#0a66c2] hover:bg-[#0854a0] text-white font-semibold px-5 py-2.5 rounded-full transition-all duration-300 shadow-md shadow-blue-200 hover:shadow-lg hover:shadow-blue-300">
                     <i class="fab fa-whatsapp text-lg"></i>
                     Agendar Consulta
                 </button>
-                <button onclick="openModal()" class="sm:hidden bg-[#0a66c2] text-white p-2.5 rounded-full">
+                <button onclick="openWaModal()" class="sm:hidden bg-[#0a66c2] text-white p-2.5 rounded-full">
                     <i class="fab fa-whatsapp text-lg"></i>
                 </button>
             </div>
@@ -56,7 +69,7 @@
     </header>
 
     <!-- Hero -->
-    <section class="relative pt-[72px] overflow-hidden">
+    <section class="relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/hero-dr-flavio-urologista.webp" alt="Dr. Flávio Madeira, urologista em Goiânia" class="hidden md:block w-full h-full object-cover object-top">
             <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/hero-mobile-drflavio-cirurgiarobotica2.png" alt="Dr. Flávio Madeira" class="md:hidden w-full h-full object-cover object-top">
@@ -67,7 +80,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="min-h-[85vh] md:min-h-[92vh] flex items-center py-12">
                 <div class="max-w-2xl">
-                    <div class="reveal inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-[#0a66c2] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                    <div class="reveal inline-flex items-center gap-2 bg-blue-50/20 border border-blue-100/20 text-[#0a66c2] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
                         <span class="w-2 h-2 bg-[#0a66c2] rounded-full animate-pulse"></span>
                         Consultas Particulares • Online e Presencial
                     </div>
@@ -81,7 +94,7 @@
                     </p>
 
                     <div class="reveal mt-8 flex flex-col sm:flex-row gap-3">
-                        <button onclick="openModal()" class="group inline-flex items-center justify-center gap-2.5 bg-[#0a66c2] hover:bg-[#0854a0] text-white font-semibold px-7 py-4 rounded-full transition-all duration-300 shadow-xl shadow-blue-200 hover:shadow-2xl hover:shadow-blue-300 hover:-translate-y-0.5">
+                        <button onclick="openWaModal()" class="group inline-flex items-center justify-center gap-2.5 bg-[#0a66c2] hover:bg-[#0854a0] text-white font-semibold px-7 py-4 rounded-full transition-all duration-300 shadow-xl shadow-blue-200 hover:shadow-2xl hover:shadow-blue-300 hover:-translate-y-0.5">
                             <i class="fab fa-whatsapp text-xl"></i>
                             Agendar no WhatsApp
                             <i class="fas fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
@@ -93,13 +106,8 @@
                     </div>
 
                     <div class="reveal mt-10 flex items-center gap-6">
-                        <div class="flex -space-x-2">
-                            <img class="w-9 h-9 rounded-full border-2 border-white" src="https://i.pravatar.cc/40?img=12" alt="">
-                            <img class="w-9 h-9 rounded-full border-2 border-white" src="https://i.pravatar.cc/40?img=13" alt="">
-                            <img class="w-9 h-9 rounded-full border-2 border-white" src="https://i.pravatar.cc/40?img=14" alt="">
-                        </div>
                         <p class="text-sm text-gray-600">
-                            <span class="font-bold text-[#0a2540]">+15 anos de experiência</span> | <span class="font-bold text-[#0a2540]">+4000 pacientes atendidos</span>
+                            <span class="font-bold text-[#0a2540]">+15 anos de experiência</span> | <span class="font-bold text-[#0a2540]">+400 procedimentos robóticos realizados</span>
                         </p>
                     </div>
                 </div>
@@ -152,7 +160,7 @@
     <!-- Sobre o Médico -->
     <section class="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
                 <div class="reveal relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-[#0a66c2]/20 to-[#0a2540]/20 rounded-[2.5rem] blur-2xl"></div>
                     <div class="relative bg-white p-2 rounded-[2rem] shadow-2xl">
@@ -227,50 +235,34 @@
     </section>
 
     <!-- Principais motivos -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto">
-                <h2 class="reveal text-3xl lg:text-4xl font-bold text-[#0a2540]">Principais motivos para consulta</h2>
-                <p class="reveal mt-3 text-gray-600">Avaliação urológica completa e individualizada</p>
+    <section class="bg-[#0a2540] text-white py-20 lg:py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0a66c2]/20 rounded-full blur-[120px] translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute top-0 -left-32 w-96 h-96 bg-[#0a66c2]/15 rounded-full blur-[80px]"></div>
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal max-w-2xl mx-auto text-center mb-14">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-4">PRINCIPAIS PROCEDIMENTOS</div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-3">Principais Indicações</h2>
+                <p class="text-blue-100/80">Cirurgias onde a robótica oferece maior benefício sobre a técnica aberta</p>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mt-12">
-                <div class="reveal group relative bg-gradient-to-b from-gray-50 to-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-14 h-14 bg-gradient-to-br from-[#0a66c2] to-[#0a2540] rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-shield-halved text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#0a2540] mb-3">Próstata</h3>
-                    <p class="text-gray-600">HPB, PSA alto, câncer de próstata, prostatite, rastreamento e prevenção</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">PSA</span>
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">HPB</span>
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">Câncer</span>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <div class="reveal group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6c-2.2 0-3.8 1.4-3.8 3.2 0 1.2.7 2 1.6 2.7.5.4.9 1 .9 1.7v1.5"/><path d="M11 6c2.2 0 3.8 1.4 3.8 3.2 0 1.2-.7 2-1.6 2.7-.5.4-.9 1-.9 1.7v1.5"/><circle cx="17.5" cy="17.5" r="3.2"/><path d="M19.7 19.7l2.3 2.3"/></svg></div>
+                    <h3 class="text-xl font-bold mb-3">Câncer de Próstata Localizado</h3>
+                    <p class="text-blue-100/80 text-sm leading-relaxed mb-6">Prostatectomia radical robótica com preservação de nervos. Melhor controle oncológico com maior chance de manutenção da continência e potência.</p>
+                    <button onclick="openWaModal()" class="inline-flex items-center gap-1.5 text-white/80 font-semibold text-sm group-hover:text-white group-hover:gap-2 transition-all">→ Agendar avaliação personalizada</button>
                 </div>
-
-                <div class="reveal group relative bg-gradient-to-b from-gray-50 to-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 100ms">
-                    <div class="w-14 h-14 bg-gradient-to-br from-[#0a66c2] to-[#0a2540] rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-kidneys text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#0a2540] mb-3">Rim e Cálculos</h3>
-                    <p class="text-gray-600">Pedra nos rins, cólica renal, infecção urinária de repetição, cistos renais</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">Cálculo</span>
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">Cólica</span>
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">Infecção</span>
-                    </div>
+                <div class="reveal group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-[#0a66c2] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#0a66c2]/30"><svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3C5.8 3 4 5.5 4 9.5S5.8 16 8 16c1.1 0 1.9-.8 1.9-1.8 0-.6-.4-1.1-.9-1.4-.5-.3-.8-.6-.6-1.2.2-.4.5-.7.9-.9.6-.2.9-.7.7-1.3C9.8 8.6 9.1 8.2 8.4 8.2"/><path d="M16 3c2.2 0 4 2.5 4 6.5S18.2 16 16 16c-1.1 0-1.9-.8-1.9-1.8 0-.6.4-1.1.9-1.4.5-.3.8-.6.6-1.2-.2-.4-.5-.7-.9-.9-.6-.2-.9-.7-.7-1.3.2-.8.9-1.2 1.6-1.2"/></svg></div>
+                    <h3 class="text-xl font-bold mb-3">Câncer de Rim</h3>
+                    <p class="text-blue-100/80 text-sm leading-relaxed mb-6">Nefrectomia parcial robótica com preservação máxima do parênquima renal. Isquemia mínima e sutura precisa do rim.</p>
+                    <button onclick="openWaModal()" class="inline-flex items-center gap-1.5 text-white/80 font-semibold text-sm group-hover:text-white group-hover:gap-2 transition-all">→ Agendar avaliação personalizada</button>
                 </div>
-
-                <div class="reveal group relative bg-gradient-to-b from-gray-50 to-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 200ms">
-                    <div class="w-14 h-14 bg-gradient-to-br from-[#0a66c2] to-[#0a2540] rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-heart-pulse text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#0a2540] mb-3">Saúde Sexual e Bexiga</h3>
-                    <p class="text-gray-600">Disfunção erétil, ejaculação precoce, incontinência urinária, bexiga hiperativa</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">Disfunção erétil</span>
-                        <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">Incontinência</span>
-                    </div>
+                <div class="reveal group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 003 3h6a3 3 0 003-3V9"/></svg></div>
+                    <h3 class="text-xl font-bold mb-3">Reconstruções Complexas</h3>
+                    <p class="text-blue-100/80 text-sm leading-relaxed mb-6">Pieloplastia, reimplante ureteral e cirurgias de bexiga. Precisão para suturas em espaços profundos e de difícil acesso.</p>
+                    <button onclick="openWaModal()" class="inline-flex items-center gap-1.5 text-white/80 font-semibold text-sm group-hover:text-white group-hover:gap-2 transition-all">→ Agendar avaliação personalizada</button>
                 </div>
             </div>
         </div>
@@ -287,14 +279,15 @@
                     <div class="flex text-amber-400 mb-3">★★★★★</div>
                     <p class="text-gray-700 text-sm leading-relaxed">"Atendimento impecável. Dr. Flávio explicou tudo com calma, tirou todas as dúvidas sobre minha cirurgia de próstata."</p>
                     <div class="mt-4 flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/40?img=33" class="w-9 h-9 rounded-full" alt="">
+                        <div class="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center font-semibold text-slate-600 text-sm">CM</div>
                         <div><p class="font-semibold text-sm">Carlos M.</p><p class="text-xs text-gray-500">Goiânia</p></div>
                     </div>
+                </div>
                 <div class="reveal bg-white p-6 rounded-2xl border border-gray-100 shadow-sm" style="transition-delay: 100ms">
                     <div class="flex text-amber-400 mb-3">★★★★★</div>
                     <p class="text-gray-700 text-sm leading-relaxed">"Consulta online excelente! Resolvi meu problema de cálculo renal sem sair de casa. Muito atencioso."</p>
                     <div class="mt-4 flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/40?img=17" class="w-9 h-9 rounded-full" alt="">
+                        <div class="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center font-semibold text-slate-600 text-sm">RS</div>
                         <div><p class="font-semibold text-sm">Roberto S.</p><p class="text-xs text-gray-500">Anápolis</p></div>
                     </div>
                 </div>
@@ -302,7 +295,7 @@
                     <div class="flex text-amber-400 mb-3">★★★★★</div>
                     <p class="text-gray-700 text-sm leading-relaxed">"Profissional humano e atualizado. Fez minha cirurgia robótica e a recuperação foi muito rápida."</p>
                     <div class="mt-4 flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/40?img=56" class="w-9 h-9 rounded-full" alt="">
+                        <div class="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center font-semibold text-slate-600 text-sm">MA</div>
                         <div><p class="font-semibold text-sm">Marcos A.</p><p class="text-xs text-gray-500">Goiânia</p></div>
                     </div>
                 </div>
@@ -310,7 +303,7 @@
                     <div class="flex text-amber-400 mb-3">★★★★★</div>
                     <p class="text-gray-700 text-sm leading-relaxed">"Finalmente um urologista que ouve o paciente. Consulta particular vale cada minuto. Recomendo!"</p>
                     <div class="mt-4 flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/40?img=22" class="w-9 h-9 rounded-full" alt="">
+                        <div class="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center font-semibold text-slate-600 text-sm">PR</div>
                         <div><p class="font-semibold text-sm">Paulo R.</p><p class="text-xs text-gray-500">Aparecida</p></div>
                     </div>
                 </div>
@@ -356,7 +349,7 @@
     <!-- Como funciona -->
     <section id="como-funciona" class="py-20 lg:py-28 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-14 items-center">
+            <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
                 <div>
                     <h2 class="reveal text-3xl lg:text-4xl font-bold text-[#0a2540]">Como funciona na prática</h2>
                     <div class="mt-10 space-y-6">
@@ -370,23 +363,19 @@
                         </div>
                         <div class="reveal flex gap-5">
                             <div class="w-10 h-10 rounded-full bg-[#0a66c2] text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
-                            <div><h4 class="font-semibold text-lg">Consulta completa (60min aprox)</h4><p class="text-gray-600 mt-1">Avaliação detalhada, revisão de exames e esclarecimento de dúvidas</p></div>
+                            <div><h4 class="font-semibold text-lg">Consulta completa</h4><p class="text-gray-600 mt-1">Avaliação detalhada, revisão de exames e esclarecimento de dúvidas</p></div>
                         </div>
                         <div class="reveal flex gap-5">
                             <div class="w-10 h-10 rounded-full bg-[#0a66c2] text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
                             <div><h4 class="font-semibold text-lg">Receba orientações e plano</h4><p class="text-gray-600 mt-1">Plano de tratamento, pedidos de exames e acompanhamento</p></div>
                         </div>
                     </div>
-                    <button onclick="openModal()" class="reveal mt-10 inline-flex items-center gap-2 bg-[#0a2540] hover:bg-black text-white font-semibold px-6 py-3.5 rounded-full transition-all">
+                    <button onclick="openWaModal()" class="reveal mt-10 inline-flex items-center gap-2 bg-[#0a2540] hover:bg-black text-white font-semibold px-6 py-3.5 rounded-full transition-all">
                         Agendar agora <i class="fas fa-arrow-right text-sm"></i>
                     </button>
                 </div>
                 <div class="reveal relative">
                     <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/como-funciona-cirurgia-robotica.webp" alt="Consulta urológica" class="rounded-3xl shadow-2xl w-full">
-                    <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-100">
-                        <p class="text-sm text-gray-500">Tempo médio</p>
-                        <p class="text-2xl font-bold text-[#0a66c2]">60 minutos</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -400,7 +389,7 @@
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Pronto para cuidar da sua saúde urológica?</h2>
             <p class="reveal mt-4 text-lg text-blue-100 max-w-2xl mx-auto">Agende sua consulta particular online ou presencial com o Dr. Flávio Madeira. Atendimento direto, sem intermediários.</p>
-            <button onclick="openModal()" class="reveal mt-8 inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-[#0a2540] font-bold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-white/20 transition-all hover:-translate-y-0.5">
+            <button onclick="openWaModal()" class="reveal mt-8 inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-[#0a2540] font-bold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-white/20 transition-all hover:-translate-y-0.5">
                 <i class="fab fa-whatsapp text-2xl text-green-600"></i>
                 Agendar no WhatsApp
             </button>
@@ -421,100 +410,95 @@
                     <p class="text-sm">Goiânia - Goiás</p>
                     <p class="text-xs mt-1 text-blue-200/70">Consultas Particulares Online e Presenciais</p>
                 </div>
-            <div class="border-t border-white/10 mt-8 pt-6 text-center text-xs text-blue-200/50">
-                © 2025 Dr. Flávio Madeira. Todos os direitos reservados.
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="text-[11px] text-blue-200/30">© 2025 <a href="https://www.elevasolucoes.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-200/50 hover:text-white transition-colors">Eleva Soluções</a>. Todos os direitos reservados. Desenvolvido por <a href="https://www.linkedin.com/in/gabriel-rizzato/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-200/50 hover:text-white transition-colors">Gabriel Rizzato</a>.</p>
             </div>
         </div>
     </footer>
 
     <!-- Botão Flutuante WhatsApp -->
-    <button onclick="openModal()" class="fixed bottom-6 right-6 z-30 w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] rounded-full shadow-2xl flex items-center justify-center text-white text-2xl hover:scale-110 transition-all animate-pulse hover:animate-none">
-        <i class="fab fa-whatsapp"></i>
+    <button id="wa-button" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 group">
+        <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30 group-hover:opacity-40"></span>
+        <span class="absolute -inset-1 rounded-full bg-[#25D366]/20 animate-pulse [animation-duration:2s]"></span>
+        <span class="relative flex items-center justify-center w-[60px] h-[60px] sm:w-[64px] sm:h-[64px] bg-[#25D366] rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.45)] group-hover:-translate-y-0.5 group-active:translate-y-0 transition-all duration-300">
+            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" class="text-white translate-x-[1px]">
+                <path d="M16.003 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.57-1.72a12.74 12.74 0 0 0 6.24 1.59h.01c7.07 0 12.8-5.73 12.8-12.8S23.073 3.2 16.003 3.2Zm0 23.47c-1.94 0-3.84-.52-5.5-1.5l-.39-.23-3.9 1.02 1.04-3.8-.25-.39a10.6 10.6 0 0 1-1.63-5.67c0-5.88 4.79-10.67 10.67-10.67 2.85 0 5.53 1.11 7.55 3.13a10.6 10.6 0 0 1 3.12 7.55c0 5.88-4.79 10.67-10.71 10.67Zm5.86-7.99c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.84-1.59-1.89-1.78-2.21-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.64s1.14 3.06 1.3 3.28c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.89-.77 2.16-1.52.26-.75.26-1.39.18-1.52-.07-.13-.29-.21-.61-.37Z" fill="currentColor"/>
+            </svg>
+        </span>
+        <span class="hidden sm:flex absolute right-[72px] top-1/2 -translate-y-1/2 whitespace-nowrap bg-slate-900 text-white text-[13px] font-medium px-3 py-2 rounded-lg shadow-lg opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
+            Fale conosco
+            <span class="absolute right-[-4px] top-1/2 -translate-y-1/2 w-2 h-2 bg-slate-900 rotate-45"></span>
+        </span>
     </button>
 
-    <!-- Modal WhatsApp -->
-    <div id="whatsapp-modal" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
-        <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
-            <div class="bg-white rounded-[28px] shadow-2xl max-w-md w-full overflow-hidden">
-                <div class="bg-gradient-to-r from-[#0a66c2] to-[#0a2540] p-6 text-white relative">
-                    <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors">
-                        <i class="fas fa-times text-sm"></i>
+    <!-- Modal WhatsApp v3 -->
+    <div id="wa-modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="wa-title">
+        <div id="wa-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-[6px] opacity-0 transition-opacity duration-300"></div>
+        <div class="relative min-h-full flex items-end sm:items-center justify-center p-0 sm:p-4">
+            <div id="wa-dialog" class="relative w-full sm:max-w-[440px] bg-white sm:rounded-[28px] rounded-t-[28px] shadow-2xl ring-1 ring-black/5 modal-enter flex flex-col max-h-[100dvh] sm:max-h-[90vh]">
+                <div class="relative shrink-0 px-6 pt-5 pb-5 bg-gradient-to-b from-[#0a66c2] to-[#0a5bb0] sm:rounded-t-[28px] rounded-t-[28px] overflow-hidden">
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-black/10 rounded-full blur-xl"></div>
+                    <button id="wa-close" aria-label="Fechar" class="absolute top-4 right-4 z-10 w-8 h-8 grid place-items-center rounded-full text-white/80 hover:text-white hover:bg-white/15 transition-colors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                            <i class="fab fa-whatsapp text-2xl"></i>
+                    <div class="relative flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 grid place-items-center shrink-0 shadow-inner">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+                                <path d="M12 5.5c-1.5 0-2.9.4-4.1 1.1-1.2.7-2.1 1.7-2.7 2.9-.6 1.2-.9 2.5-.8 3.8 0 1.3.4 2.6 1.1 3.7l-1 3.6 3.7-1c1 .5 2.1.8 3.2.8 1.5 0 2.9-.4 4.1-1.1 1.2-.7 2.2-1.7 2.8-2.9.6-1.2.9-2.5.8-3.8 0-1.3-.4-2.6-1.1-3.7-.7-1.1-1.7-2-2.9-2.6-1.2-.6-2.5-.8-3.8-.8h-.3Z" stroke="currentColor" stroke-width="1.5" fill="white" fill-opacity="0.15"/></svg>
                         </div>
                         <div>
-                            <h3 class="font-bold text-xl">Agendar Consulta</h3>
-                            <p class="text-sm text-blue-100">Dr. Flávio Madeira</p>
+                            <h2 id="wa-title" class="text-[20px] font-semibold text-white leading-tight">Agendar Consulta</h2>
+                            <p class="text-[13px] text-blue-100/90 mt-0.5">Dr. Flávio Madeira • Resposta rápida</p>
                         </div>
                     </div>
                 </div>
-                
-                <form id="whatsapp-form" class="p-6 space-y-4">
-                    <div>
-                        <label class="text-sm font-medium text-gray-700 mb-1.5 block">Nome completo *</label>
-                        <input type="text" id="nome" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0a66c2]/20 focus:border-[#0a66c2] outline-none transition-all" placeholder="Seu nome">
+                <form id="wa-form" class="flex flex-col flex-1 overflow-hidden" novalidate>
+                    <div class="overflow-y-auto flex-1 px-6 py-4 space-y-3">
+                        <div>
+                            <label for="wa-motivo" class="block text-[13px] font-medium text-slate-700 mb-1.5">Motivo do contato <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <select id="wa-motivo" name="motivo" required class="w-full h-[46px] px-4 pr-10 rounded-xl bg-slate-50 border border-slate-200 text-[15px] text-slate-900 outline-none transition-all focus:bg-white focus:border-[#0a66c2] focus:ring-4 focus:ring-[#0a66c2]/10 appearance-none cursor-pointer">
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option>Consulta Particular Online</option>
+                                    <option>Consulta Particular Presencial</option>
+                                    <option>Consulta Plano de Saúde</option>
+                                    <option>Segunda Opinião</option>
+                                    <option>Outro</option>
+                                </select>
+                                <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                            </div>
+                            <p data-error="wa-motivo" class="hidden mt-1 text-[12px] text-red-600"></p>
+                        </div>
+                        <div>
+                            <label for="wa-nome" class="block text-[13px] font-medium text-slate-700 mb-1.5">Seu nome: <span class="text-slate-400 font-normal">(opcional)</span></label>
+                            <div class="relative">
+                                <input id="wa-nome" name="nome" type="text" autocomplete="name" placeholder="Digite seu nome" class="w-full h-[46px] px-4 pr-10 rounded-xl bg-slate-50 border border-slate-200 text-[15px] text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white focus:border-[#0a66c2] focus:ring-4 focus:ring-[#0a66c2]/10">
+                                <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="wa-mensagem" class="block text-[13px] font-medium text-slate-700 mb-1.5">Mensagem <span class="text-slate-400 font-normal">(opcional)</span></label>
+                            <textarea id="wa-mensagem" name="mensagem" rows="2" placeholder="Descreva brevemente sua dúvida..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-[15px] text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white focus:border-[#0a66c2] focus:ring-4 focus:ring-[#0a66c2]/10 resize-none"></textarea>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="text-[#0a66c2] mt-0.5 shrink-0"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            <p class="text-[11px] leading-snug text-slate-500">Dados confidenciais. Uso exclusivo para este atendimento (LGPD).</p>
+                        </div>
                     </div>
-                    <div>
-                        <label class="text-sm font-medium text-gray-700 mb-1.5 block">WhatsApp *</label>
-                        <input type="tel" id="telefone" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0a66c2]/20 focus:border-[#0a66c2] outline-none transition-all" placeholder="(62) 99999-9999">
+                    <div class="shrink-0 flex gap-3 px-6 py-4 border-t border-slate-100 bg-white sm:rounded-b-[28px]">
+                        <button type="button" id="wa-cancel" class="h-[46px] px-5 rounded-xl text-[14px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">Cancelar</button>
+                        <button type="submit" id="wa-submit" class="flex-1 h-[46px] rounded-xl bg-[#25D366] hover:bg-[#20bd5a] active:bg-[#1ca655] text-white text-[15px] font-semibold shadow-[0_6px_16px_rgba(37,211,102,0.3)] hover:shadow-[0_8px_20px_rgba(37,211,102,0.4)] transition-all flex items-center justify-center gap-2 group">
+                            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" class="group-hover:scale-110 transition-transform"><path d="M16.003 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.57-1.72a12.74 12.74 0 0 0 6.24 1.59h.01c7.07 0 12.8-5.73 12.8-12.8S23.073 3.2 16.003 3.2Z" fill="white"/></svg>
+                            Enviar no WhatsApp
+                        </button>
                     </div>
-                    <div>
-                        <label class="text-sm font-medium text-gray-700 mb-1.5 block">Motivo da consulta *</label>
-                        <select id="motivo" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0a66c2]/20 focus:border-[#0a66c2] outline-none transition-all bg-white">
-                            <option value="">Selecione...</option>
-                            <option>Consulta Particular Online</option>
-                            <option>Consulta Particular Presencial</option>
-                            <option>Consulta Plano de Saúde</option>
-                            <option>Segunda Opinião</option>
-                            <option>Outro</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-sm font-medium text-gray-700 mb-1.5 block">Mensagem (opcional)</label>
-                        <textarea id="mensagem" rows="3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0a66c2]/20 focus:border-[#0a66c2] outline-none transition-all resize-none" placeholder="Descreva brevemente..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-200">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                        Enviar para WhatsApp
-                    </button>
-                    <p class="text-xs text-center text-gray-500">Você será redirecionado para o WhatsApp</p>
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        // Modal
-        function openModal() {
-            document.getElementById('whatsapp-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            document.getElementById('whatsapp-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Form WhatsApp
-        document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
-            const motivo = document.getElementById('motivo').value;
-            const mensagem = document.getElementById('mensagem').value;
-            
-            let texto = `Olá! Gostaria de agendar uma consulta com Dr. Flávio Madeira.%0A%0A`;
-            texto += `*Nome:* ${nome}%0A`;
-            texto += `*Telefone:* ${telefone}%0A`;
-            texto += `*Motivo:* ${motivo}%0A`;
-            if(mensagem) texto += `*Mensagem:* ${mensagem}`;
-            
-            window.open(`https://wa.me/5562999789482?text=${texto}`, '_blank');
-            closeModal();
-        });
-
         // Toggle Formação
         function toggleFormacao() {
             const detalhes = document.getElementById('formacao-detalhes');
@@ -543,5 +527,128 @@
             });
         });
     </script>
-</body>
-</html>
+
+    <script>
+    /* Modal WhatsApp v3 — by Gabriel Rizzato | linkedin.com/in/gabriel-rizzato | www.elevasolucoes.com */
+    (() => {
+        const WHATSAPP_NUMBER   = '5562999789482';
+        const NOME_DESTINATARIO = 'Dr. Flávio';
+        const ORIGEM_MENSAGEM   = 'pela página de consulta';
+
+        const btn       = document.getElementById('wa-button');
+        const modal     = document.getElementById('wa-modal');
+        const backdrop  = document.getElementById('wa-backdrop');
+        const dialog    = document.getElementById('wa-dialog');
+        const closeBtn  = document.getElementById('wa-close');
+        const cancelBtn = document.getElementById('wa-cancel');
+        const form      = document.getElementById('wa-form');
+        const nome      = document.getElementById('wa-nome');
+        const motivo    = document.getElementById('wa-motivo');
+        const mensagem  = document.getElementById('wa-mensagem');
+
+        motivo.addEventListener('change', () => clearError('wa-motivo'));
+
+        const openModal = () => {
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => {
+                backdrop.classList.remove('opacity-0');
+                backdrop.classList.add('opacity-100');
+                dialog.classList.remove('modal-enter');
+                dialog.classList.add('modal-enter-active');
+            });
+            setTimeout(() => motivo.focus(), 150);
+        };
+
+        const closeModal = () => {
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0');
+            dialog.classList.remove('modal-enter-active');
+            dialog.classList.add('modal-leave-active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                dialog.classList.remove('modal-leave-active');
+                dialog.classList.add('modal-enter');
+            }, 200);
+        };
+
+        window.openWaModal = openModal;
+
+        if (btn) btn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+        const showError = (id, msg) => {
+            const input = document.getElementById(id);
+            const errorEl = document.querySelector(`[data-error="${id}"]`);
+            if (input) input.classList.add('!border-red-500', '!ring-4', '!ring-red-500/10', '!bg-red-50/50');
+            if (errorEl) { errorEl.textContent = msg; errorEl.classList.remove('hidden'); }
+        };
+
+        const clearError = (id) => {
+            const input = document.getElementById(id);
+            const errorEl = document.querySelector(`[data-error="${id}"]`);
+            if (input) input.classList.remove('!border-red-500', '!ring-4', '!ring-red-500/10', '!bg-red-50/50');
+            if (errorEl) errorEl.classList.add('hidden');
+        };
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearError('wa-motivo');
+
+            const nomeVal   = nome.value.trim();
+            const motivoVal = motivo.value;
+            const msgVal    = mensagem.value.trim();
+            let valid = true;
+
+            if (!motivoVal) { showError('wa-motivo', 'Selecione o motivo do contato'); valid = false; }
+            if (!valid) return;
+
+            let texto = `Olá, ${NOME_DESTINATARIO}!\n\n*Motivo:* ${motivoVal}`;
+            if (nomeVal) texto += `\n*Nome:* ${nomeVal}`;
+            if (msgVal)  texto += `\n*Mensagem:* ${msgVal}`;
+            texto += `\n\nEnviado ${ORIGEM_MENSAGEM}.`;
+
+            const _trackingKeys = ['gclid', 'fbclid', 'ttclid', 'msclkid'];
+            const _urlParams = new URLSearchParams(window.location.search);
+            let _rawId = null;
+            for (const k of _trackingKeys) {
+                const v = _urlParams.get(k) || localStorage.getItem(k);
+                if (v) { _rawId = v; break; }
+            }
+            const ticket = _rawId && _rawId.length > 26 ? _rawId.slice(26, 32).toUpperCase() : null;
+            const textoFinal = ticket ? `${texto}\n*id: ${ticket}*` : texto;
+
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(textoFinal)}`;
+
+            const submitBtn = document.getElementById('wa-submit');
+            submitBtn.innerHTML = `<svg class="animate-spin w-5 h-5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.3"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg> Abrindo...`;
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                window.open(url, '_blank', 'noopener,noreferrer');
+                closeModal();
+                setTimeout(() => {
+                    form.reset();
+                    submitBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 32 32" fill="none" class="group-hover:scale-110 transition-transform"><path d="M16.003 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.57-1.72a12.74 12.74 0 0 0 6.24 1.59h.01c7.07 0 12.8-5.73 12.8-12.8S23.073 3.2 16.003 3.2Z" fill="white"/></svg> Enviar no WhatsApp`;
+                    submitBtn.disabled = false;
+                }, 300);
+            }, 400);
+        });
+
+        if (/iPhone|iPad/.test(navigator.userAgent)) {
+            [nome, mensagem].forEach(el => {
+                el.addEventListener('focus', () => document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1'));
+                el.addEventListener('blur',  () => document.querySelector('meta[name=viewport]').setAttribute('content', 'width=device-width, initial-scale=1'));
+            });
+        }
+    })();
+    </script>
+
+</div>
+<!-- /lp-consulta -->
