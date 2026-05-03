@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Flávio Madeira - Cirurgia Robótica em Urologia | Goiânia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
+<!-- LP Dr. Flávio Madeira — embed WordPress/Elementor -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -18,8 +13,8 @@
             }
         }
     </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+<style>
+        #lp-flavio { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         .text-shadow-white { text-shadow: 0 2px 12px rgba(255,255,255,0.9), 0 1px 3px rgba(0,0,0,0.08); }
         .text-shadow-subtle { text-shadow: 0 1px 8px rgba(255,255,255,0.9); }
         .modal-enter { opacity: 0; transform: translateY(16px) scale(0.96); }
@@ -28,9 +23,44 @@
         select { background-image: none; }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(44px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(-44px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.revealed,
+        .reveal-left.revealed,
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        .reveal-delay-1 { transition-delay: 110ms; }
+        .reveal-delay-2 { transition-delay: 220ms; }
+        .reveal-delay-3 { transition-delay: 330ms; }
+        .reveal-delay-4 { transition-delay: 440ms; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right {
+                opacity: 1 !important; transform: none !important; transition: none !important;
+            }
+        }
     </style>
-</head>
-<body class="bg-white text-slate-800 antialiased">
+
+<div id="lp-flavio" class="bg-white text-slate-800 antialiased" style="width:100vw;position:relative;margin-left:calc(-50vw + 50%);overflow-x:clip;">
 
     <!-- HEADER -->
     <header class="absolute top-0 left-0 w-full z-30">
@@ -42,7 +72,7 @@
                     </div>
                     <div>
                         <p class="font-bold text-slate-900 leading-none">Dr. Flávio Madeira</p>
-                        <p class="text-xs text-slate-600">CRM-GO 13184 | Urologia</p>
+                        <p class="text-xs text-slate-600">CRM: 9165/GO | Urologia</p>
                     </div>
                 <button onclick="openWaModal()" class="hidden md:inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-primary/90 transition-all shadow-md shadow-primary/20">
                     Agendar Avaliação
@@ -59,7 +89,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/60 lg:from-white/95 lg:via-white/80 lg:to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent"></div>
         </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20 pb-10">
             <div class="max-w-2xl">
                 <div class="inline-flex items-center gap-2 bg-white/85 backdrop-blur-md text-[#0a66c2] border border-[#0a66c2]/20 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
                     <span class="relative flex h-2 w-2">
@@ -85,11 +115,8 @@
                 </div>
                 <div class="flex items-center gap-6 mt-10 pt-8 border-t border-slate-200/70">
                     <div class="flex -space-x-2">
-                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=100" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=100" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=100" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="">
                     </div>
-                    <p class="text-sm text-slate-600"><strong class="text-slate-900">+500 procedimentos</strong> robóticos realizados</p>
+                    <p class="text-sm text-slate-600"><strong class="text-slate-900">+400 procedimentos</strong> robóticos realizados</p>
                 </div>
             </div>
         </div>
@@ -102,27 +129,27 @@
         <div class="absolute bottom-0 -left-32 w-96 h-96 bg-[#0a66c2]/15 rounded-full blur-[80px]"></div>
         <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center mb-16">
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-4">TECNOLOGIA DA VINCI</div>
-                <h2 class="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">O que é a Cirurgia Robótica?</h2>
-                <p class="text-lg text-blue-100/80 leading-relaxed">É a evolução da cirurgia minimamente invasiva. O cirurgião controla, em um console, braços robóticos com instrumentos articulados que reproduzem os movimentos da mão humana com muito mais precisão, estabilidade e amplitude, através de incisões de apenas 8mm.</p>
+                <div class="reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-4">TECNOLOGIA DA VINCI</div>
+                <h2 class="reveal reveal-delay-1 text-3xl lg:text-4xl font-bold mb-4 tracking-tight">O que é a Cirurgia Robótica?</h2>
+                <p class="reveal reveal-delay-2 text-lg text-blue-100/80 leading-relaxed">É a evolução da cirurgia minimamente invasiva. O cirurgião controla, em um console, braços robóticos com instrumentos articulados que reproduzem os movimentos da mão humana com muito mais precisão, estabilidade e amplitude, através de incisões de apenas 8mm.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+                <div class="reveal bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0a66c2] to-[#0957a5] flex items-center justify-center mb-5 shadow-lg shadow-[#0a66c2]/30"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg></div>
                     <h3 class="font-bold text-lg mb-2">Tecnologia Avançada</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed">Sistema Da Vinci com instrumentação de 7 graus de liberdade e filtro de tremor.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+                <div class="reveal reveal-delay-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0a66c2] to-[#0957a5] flex items-center justify-center mb-5 shadow-lg shadow-[#0a66c2]/30"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
                     <h3 class="font-bold text-lg mb-2">Minimamente Invasiva</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed">Incisões de 8mm, sem cortes amplos. Menos trauma, menos dor.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+                <div class="reveal reveal-delay-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0a66c2] to-[#0957a5] flex items-center justify-center mb-5 shadow-lg shadow-[#0a66c2]/30"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
                     <h3 class="font-bold text-lg mb-2">Visão Ampliada</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed">Imagem 3D em alta definição com aumento de até 10 vezes.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+                <div class="reveal reveal-delay-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0a66c2] to-[#0957a5] flex items-center justify-center mb-5 shadow-lg shadow-[#0a66c2]/30"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
                     <h3 class="font-bold text-lg mb-2">Recuperação Rápida</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed">Alta hospitalar precoce e retorno mais rápido às atividades.</p>
@@ -135,37 +162,110 @@
     <section class="py-20 lg:py-28 bg-white">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div>
+                <div class="reveal-right">
                     <div class="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-semibold mb-5">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>REFERÊNCIA EM GOIÁS
                     </div>
-                    <h2 class="text-3xl lg:text-[40px] font-bold text-slate-900 leading-tight mb-5">Dr. Flávio Arantes Madeira</h2>
-                    <p class="text-[#0a66c2] font-semibold mb-6">Urologista • CRM-GO 13184 • RQE 8474</p>
+                    <h2 class="text-3xl lg:text-[40px] font-bold text-slate-900 leading-tight mb-5">Dr. Flávio Madeira</h2>
+                    <p class="text-[#0a66c2] font-semibold mb-6">Urologista • CRM: 9165/GO • RQE 5858</p>
                     <div class="space-y-4 text-slate-600 leading-relaxed">
                         <p>Pioneiro na cirurgia robótica em Goiás, com formação avançada em centros de referência no Brasil e exterior. Dedicação exclusiva ao tratamento cirúrgico do câncer de próstata e rim com tecnologia robótica.</p>
                         <p>Atuação focada em resultados oncológicos e preservação funcional, utilizando as técnicas mais modernas de prostatectomia e nefrectomia parcial robótica.</p>
                     </div>
                     <div class="grid grid-cols-2 gap-4 mt-8">
-                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-bold text-[#0a66c2]">500+</p><p class="text-xs text-slate-600 font-medium">Cirurgias Robóticas</p></div>
+                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-bold text-[#0a66c2]">400+</p><p class="text-xs text-slate-600 font-medium">Cirurgias Robóticas</p></div>
                         <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-bold text-[#0a66c2]">15+</p><p class="text-xs text-slate-600 font-medium">Anos de Experiência</p></div>
                     </div>
                     <div class="mt-8 flex flex-wrap gap-3">
                         <span class="px-3 py-1.5 bg-slate-100 rounded-lg text-xs font-medium text-slate-700">Sociedade Brasileira de Urologia</span>
                         <span class="px-3 py-1.5 bg-slate-100 rounded-lg text-xs font-medium text-slate-700">American Urological Association</span>
                     </div>
-                </div>
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-gradient-to-br from-[#0a66c2]/10 to-blue-100/50 rounded-3xl blur-2xl"></div>
-                    <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/dr-flavio-urologista-perfil.webp"
-                         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format'"
-                         alt="Dr. Flávio Madeira - Urologista"
-                         class="relative w-72 h-[340px] lg:w-80 lg:h-[400px] object-cover object-top rounded-2xl border-8 border-white shadow-2xl mx-auto">
-                    <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-slate-100">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 6.48 2 12s4.48 10 10c.54 0 1.07-.05 1.59-.14v-4.49l-1.09-1.09c-.17-.17-.26-.4-.26-.64V14c0-.83.67-1.5 1.5-1.5H16c.83 0 1.5.67 1.5 1.5v1.64c0 .24-.09.47-.26.64l-1.09 1.09v4.49c4.14-.8 7.26-4.46 7.26-8.86 0-4.97-4.03-9-9-9zm-1.5 12H9v-1.5h1.5V11H12v1.5h1.5V14H12v1.5z"/></svg>
+
+                    <!-- TÉCNICAS -->
+                    <div class="mt-6">
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Técnicas realizadas</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-[#0a66c2]/8 border border-[#0a66c2]/20 rounded-lg text-xs font-medium text-[#0a66c2]">Cirurgia Robótica Da Vinci</span>
+                            <span class="px-3 py-1.5 bg-[#0a66c2]/8 border border-[#0a66c2]/20 rounded-lg text-xs font-medium text-[#0a66c2]">HoLEP</span>
+                            <span class="px-3 py-1.5 bg-[#0a66c2]/8 border border-[#0a66c2]/20 rounded-lg text-xs font-medium text-[#0a66c2]">Rezum</span>
+                        </div>
+                    </div>
+
+
+                    <!-- FORMAÇÃO EXPANSÍVEL -->
+                    <div class="mt-5">
+                        <button id="btn-formacao" onclick="toggleFormacao()" class="inline-flex items-center gap-2 text-sm font-medium text-[#0a66c2] hover:text-[#0957a5] transition-colors group">
+                            <svg id="icon-formacao" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            Ver formação acadêmica
+                        </button>
+                        <div id="formacao-panel" class="overflow-hidden transition-all duration-500 ease-in-out" style="max-height:0; opacity:0;">
+                            <div class="mt-4 border-l-2 border-[#0a66c2]/20 pl-4 space-y-3">
+                                <p class="text-xs font-semibold text-[#0a66c2] uppercase tracking-wide">Especialidades</p>
+                                <p class="text-sm text-slate-600 leading-relaxed">Pioneiro em Cirurgia Robótica e Videolaparoscópica. Uro-oncologia e Endo-urologia.</p>
+                                <div class="space-y-2 pt-1">
+                                    <div class="flex items-start gap-2.5">
+                                        <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0a66c2]/40"></span>
+                                        <div>
+                                            <p class="text-sm text-slate-700 font-medium">Graduação em Medicina</p>
+                                            <p class="text-xs text-slate-500">Universidade Severino Sombra – RJ</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-2.5">
+                                        <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0a66c2]/40"></span>
+                                        <div>
+                                            <p class="text-sm text-slate-700 font-medium">Residência em Cirurgia Geral</p>
+                                            <p class="text-xs text-slate-500">Santa Casa – Goiânia – GO</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-2.5">
+                                        <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0a66c2]/40"></span>
+                                        <div>
+                                            <p class="text-sm text-slate-700 font-medium">Residência em Urologia</p>
+                                            <p class="text-xs text-slate-500">Santa Casa – Goiânia – GO</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-2.5">
+                                        <span class="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#0a66c2]/40"></span>
+                                        <div>
+                                            <p class="text-sm text-slate-700 font-medium">Fellow em Uro-oncologia</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div><p class="text-xs text-slate-500">Certificação</p><p class="text-sm font-bold text-slate-900">Da Vinci System</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-left relative">
+                    <div class="absolute -inset-4 bg-gradient-to-br from-[#0a66c2]/10 to-blue-100/50 rounded-3xl blur-2xl"></div>
+
+                    <!-- Foto + card de certificação ancorado nela -->
+                    <div class="relative mx-auto w-72 lg:w-80">
+                        <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/dr-flavio-urologista-perfil.webp"
+                             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format'"
+                             alt="Dr. Flávio Madeira - Urologista"
+                             class="w-full h-[340px] lg:h-[400px] object-cover object-top rounded-2xl border-8 border-white shadow-2xl">
+                        <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg px-4 py-3 border border-slate-100">
+                            <p class="text-xs text-slate-500">Certificação</p>
+                            <p class="text-sm font-bold text-slate-900">Da Vinci System</p>
+                        </div>
+                    </div>
+
+                    <!-- LOCAIS DE ATENDIMENTO -->
+                    <div class="relative mt-10 bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Locais de atendimento</p>
+                        <div class="space-y-2.5">
+                            <div class="flex items-center gap-2.5 text-sm text-slate-700">
+                                <svg class="w-4 h-4 text-[#0a66c2] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                IRG Hospital
+                            </div>
+                            <div class="flex items-center gap-2.5 text-sm text-slate-700">
+                                <svg class="w-4 h-4 text-[#0a66c2] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                Hospital Israelita Albert Einstein
+                            </div>
+                            <div class="flex items-center gap-2.5 text-sm text-slate-700">
+                                <svg class="w-4 h-4 text-[#0a66c2] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                Consultas particulares on-line
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -179,26 +279,26 @@
         <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0a66c2]/20 rounded-full blur-[120px] translate-y-1/2 translate-x-1/3"></div>
         <div class="absolute top-0 -left-32 w-96 h-96 bg-[#0a66c2]/15 rounded-full blur-[80px]"></div>
         <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="max-w-2xl mx-auto text-center mb-14">
+            <div class="reveal max-w-2xl mx-auto text-center mb-14">
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-4">PRINCIPAIS PROCEDIMENTOS</div>
                 <h2 class="text-3xl lg:text-4xl font-bold mb-3">Principais Indicações</h2>
                 <p class="text-blue-100/80">Cirurgias onde a robótica oferece maior benefício sobre a técnica aberta</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                <div class="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
-                    <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+                <div class="reveal group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6c-2.2 0-3.8 1.4-3.8 3.2 0 1.2.7 2 1.6 2.7.5.4.9 1 .9 1.7v1.5"/><path d="M11 6c2.2 0 3.8 1.4 3.8 3.2 0 1.2-.7 2-1.6 2.7-.5.4-.9 1-.9 1.7v1.5"/><circle cx="17.5" cy="17.5" r="3.2"/><path d="M19.7 19.7l2.3 2.3"/></svg></div>
                     <h3 class="text-xl font-bold mb-3">Câncer de Próstata Localizado</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed mb-6">Prostatectomia radical robótica com preservação de nervos. Melhor controle oncológico com maior chance de manutenção da continência e potência.</p>
                     <button onclick="openWaModal()" class="inline-flex items-center gap-1.5 text-white/80 font-semibold text-sm group-hover:text-white group-hover:gap-2 transition-all">→ Agendar avaliação personalizada</button>
                 </div>
-                <div class="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
-                    <div class="w-14 h-14 rounded-2xl bg-[#0a66c2] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#0a66c2]/30"><svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364L12 7.636l-1.318-1.318a4.5 0 00-6.364 0z"/></svg></div>
+                <div class="reveal reveal-delay-1 group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-[#0a66c2] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#0a66c2]/30"><svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3C5.8 3 4 5.5 4 9.5S5.8 16 8 16c1.1 0 1.9-.8 1.9-1.8 0-.6-.4-1.1-.9-1.4-.5-.3-.8-.6-.6-1.2.2-.4.5-.7.9-.9.6-.2.9-.7.7-1.3C9.8 8.6 9.1 8.2 8.4 8.2"/><path d="M16 3c2.2 0 4 2.5 4 6.5S18.2 16 16 16c-1.1 0-1.9-.8-1.9-1.8 0-.6.4-1.1.9-1.4.5-.3.8-.6.6-1.2-.2-.4-.5-.7-.9-.9-.6-.2-.9-.7-.7-1.3.2-.8.9-1.2 1.6-1.2"/></svg></div>
                     <h3 class="text-xl font-bold mb-3">Câncer de Rim</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed mb-6">Nefrectomia parcial robótica com preservação máxima do parênquima renal. Isquemia mínima e sutura precisa do rim.</p>
                     <button onclick="openWaModal()" class="inline-flex items-center gap-1.5 text-white/80 font-semibold text-sm group-hover:text-white group-hover:gap-2 transition-all">→ Agendar avaliação personalizada</button>
                 </div>
-                <div class="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
-                    <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.419-1.415 3.419H4.828c-1.782 0-2.674-2.159-1.414-3.419l5-5A2 2 0 009 10.172V5L8 4z"/></svg></div>
+                <div class="reveal reveal-delay-2 group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 003 3h6a3 3 0 003-3V9"/></svg></div>
                     <h3 class="text-xl font-bold mb-3">Reconstruções Complexas</h3>
                     <p class="text-blue-100/80 text-sm leading-relaxed mb-6">Pieloplastia, reimplante ureteral e cirurgias de bexiga. Precisão para suturas em espaços profundos e de difícil acesso.</p>
                     <button onclick="openWaModal()" class="inline-flex items-center gap-1.5 text-white/80 font-semibold text-sm group-hover:text-white group-hover:gap-2 transition-all">→ Agendar avaliação personalizada</button>
@@ -210,13 +310,13 @@
     <!-- SEÇÃO 9: DEPOIMENTOS (SOCIAL PROOF) -->
     <section class="py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-14">
+            <div class="reveal max-w-3xl mx-auto text-center mb-14">
                 <h2 class="font-heading text-3xl lg:text-4xl font-bold text-slate-900 mb-4">O que dizem os pacientes</h2>
                 <p class="text-slate-600">Experiências reais de quem confiou no tratamento</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                <div class="reveal bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
                     <svg class="w-8 h-8 text-primary/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p class="text-slate-700 mb-6 leading-relaxed">Fiz a cirurgia de retirada da próstata com o Dr. Flávio, foi muito bom, excelente profissional, bem dedicado no que ele faz, e atencioso com seus pacientes.</p>
                     <div class="flex items-center gap-3">
@@ -228,7 +328,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                <div class="reveal reveal-delay-1 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
                     <svg class="w-8 h-8 text-primary/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p class="text-slate-700 mb-6 leading-relaxed">Fui paciente do Dr. Flávio em 2014 eu estava grávida com muitas dores por pedra nos rins e ele me acolheu muito bem. Graças a Deus e a ele não precisou fazer nenhum tipo de intervenção cirúrgica resolveu só com medicação.</p>
                     <div class="flex items-center gap-3">
@@ -240,7 +340,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                <div class="reveal reveal-delay-1 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
                     <svg class="w-8 h-8 text-primary/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p class="text-slate-700 mb-6 leading-relaxed">Excelente profissional, é competente e atencioso com os pacientes que necessitam de um atendimento urológico, fiz uma cirurgia de próstata hiperplasia amei o resultado, voltei a ter qualidade de vida!</p>
                     <div class="flex items-center gap-3">
@@ -252,7 +352,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                <div class="reveal reveal-delay-2 bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
                     <svg class="w-8 h-8 text-primary/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                     <p class="text-slate-700 mb-6 leading-relaxed">Um dos melhores urologista do estado de Goiás, sou paciente dele há 4 anos, após passar por muitos profissionais pouco resolutivos obtive uma melhora radical. Cirurgias bem sucedidas e de recuperação rápida realizadas por vídeo.</p>
                     <div class="flex items-center gap-3">
@@ -273,23 +373,23 @@
         <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 24px 24px;"></div>
         <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0a66c2]/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
         <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="reveal text-center max-w-2xl mx-auto mb-14">
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-4">EVIDÊNCIA CIENTÍFICA</div>
                 <h2 class="text-3xl lg:text-4xl font-bold mb-3">9 Vantagens Comprovadas</h2>
                 <p class="text-blue-100/80">Benefícios da cirurgia robótica sobre a cirurgia aberta tradicional</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Melhor recuperação</h3><p class="text-sm text-blue-100/80 leading-snug">Retorno mais rápido às atividades diárias</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Preserva nervos e vasos</h3><p class="text-sm text-blue-100/80 leading-snug">Facilita retorno da continência e ereção</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Visualização 3D ampliada</h3><p class="text-sm text-blue-100/80 leading-snug">Até 10x de aumento, imagem em alta definição</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Maior precisão de movimentos</h3><p class="text-sm text-blue-100/80 leading-snug">Filtro de tremor, 7 graus de liberdade</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Reconstrução em pelve profunda</h3><p class="text-sm text-blue-100/80 leading-snug">Acesso a áreas de difícil alcance</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Reduz risco de impotência</h3><p class="text-sm text-blue-100/80 leading-snug">Para 10-20% vs cirurgia aberta</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Menos trauma cirúrgico</h3><p class="text-sm text-blue-100/80 leading-snug">Recuperação mais rápida e confortável</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Menor risco de infecção</h3><p class="text-sm text-blue-100/80 leading-snug">E menor necessidade de transfusão</p></div></div></div>
-                <div class="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Menos dor e sangramento</h3><p class="text-sm text-blue-100/80 leading-snug">Pós-operatório mais tranquilo</p></div></div></div>
+                <div class="reveal group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Melhor recuperação</h3><p class="text-sm text-blue-100/80 leading-snug">Retorno mais rápido às atividades diárias</p></div></div></div>
+                <div class="reveal reveal-delay-1 group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Preserva nervos e vasos</h3><p class="text-sm text-blue-100/80 leading-snug">Facilita retorno da continência e ereção</p></div></div></div>
+                <div class="reveal reveal-delay-2 group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Visualização 3D ampliada</h3><p class="text-sm text-blue-100/80 leading-snug">Até 10x de aumento, imagem em alta definição</p></div></div></div>
+                <div class="reveal group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Maior precisão de movimentos</h3><p class="text-sm text-blue-100/80 leading-snug">Filtro de tremor, 7 graus de liberdade</p></div></div></div>
+                <div class="reveal reveal-delay-1 group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Reconstrução em pelve profunda</h3><p class="text-sm text-blue-100/80 leading-snug">Acesso a áreas de difícil alcance</p></div></div></div>
+                <div class="reveal reveal-delay-2 group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Reduz risco de impotência</h3><p class="text-sm text-blue-100/80 leading-snug">Para 10-20% vs cirurgia aberta</p></div></div></div>
+                <div class="reveal group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Menos trauma cirúrgico</h3><p class="text-sm text-blue-100/80 leading-snug">Recuperação mais rápida e confortável</p></div></div></div>
+                <div class="reveal reveal-delay-1 group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Menor risco de infecção</h3><p class="text-sm text-blue-100/80 leading-snug">E menor necessidade de transfusão</p></div></div></div>
+                <div class="reveal reveal-delay-2 group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0a66c2] flex items-center justify-center shadow-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div><div><h3 class="font-semibold mb-1">Menos dor e sangramento</h3><p class="text-sm text-blue-100/80 leading-snug">Pós-operatório mais tranquilo</p></div></div></div>
             </div>
-            <div class="mt-14 text-center">
+            <div class="reveal mt-14 text-center">
                 <button onclick="openWaModal()" class="inline-flex items-center gap-2 bg-white text-[#0a2540] px-8 py-3.5 rounded-xl font-semibold hover:bg-blue-50 transition-all shadow-lg">
                     Agendar avaliação personalizada
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -302,7 +402,7 @@
     <section id="como-funciona" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div>
+                <div class="reveal-right">
                     <h2 class="font-heading text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Como funciona na prática</h2>
                     <p class="text-slate-600 mb-8">O sistema possui 4 braços robóticos posicionados sobre o paciente. Três braços seguram os instrumentos cirúrgicos articulados, e o quarto segura a câmera 3D. Todas as imagens são transmitidas em tempo real para o console onde o cirurgião opera com controle total.</p>
 
@@ -342,7 +442,7 @@
                         <span class="text-sm"><strong>Duração média:</strong> 2 a 4 horas, dependendo da complexidade</span>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="reveal-left relative">
                     <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/como-funciona-cirurgia-robotica.webp" alt="Cirurgia Robótica Da Vinci" class="rounded-3xl shadow-xl w-full">
                 </div>
             </div>
@@ -355,17 +455,17 @@
         <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-[#0a66c2]/20 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/3"></div>
         <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#0a66c2]/15 rounded-full blur-[100px] translate-y-1/2 translate-x-1/4"></div>
         <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-6">ATENDIMENTO PERSONALIZADO</div>
-            <h3 class="text-3xl lg:text-4xl font-bold mb-4">Pronto para dar o próximo passo?</h3>
-            <p class="text-blue-100/80 text-lg mb-8 max-w-2xl mx-auto">Converse diretamente com a equipe do Dr. Flávio Madeira e entenda se a cirurgia robótica é indicada para o seu caso.</p>
-            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <div class="reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold mb-6">ATENDIMENTO PERSONALIZADO</div>
+            <h3 class="reveal reveal-delay-1 text-3xl lg:text-4xl font-bold mb-4">Pronto para dar o próximo passo?</h3>
+            <p class="reveal reveal-delay-2 text-blue-100/80 text-lg mb-8 max-w-2xl mx-auto">Converse diretamente com a equipe do Dr. Flávio Madeira e entenda se a cirurgia robótica é indicada para o seu caso.</p>
+            <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-3 justify-center">
                 <button onclick="openWaModal()" class="inline-flex items-center justify-center gap-2 bg-white text-[#0a2540] px-8 py-3.5 rounded-xl font-semibold hover:bg-blue-50 transition-all shadow-lg">
                     <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.48 1.34 4.98L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2"/></svg>
                     Agendar avaliação personalizada
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
-            <p class="text-xs text-blue-100/50 mt-8">Atendimento em Goiânia - Goiás • Hospital com sistema Da Vinci Xi</p>
+            <p class="reveal reveal-delay-4 text-xs text-blue-100/50 mt-8">Atendimento em Goiânia - Goiás • Hospital com sistema Da Vinci Xi</p>
         </div>
     </section>
 
@@ -374,10 +474,13 @@
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="text-center md:text-left">
-                    <p class="font-semibold text-slate-900">Dr. Flávio Arantes Madeira</p>
-                    <p class="text-xs text-slate-500">Urologia • CRM-GO 13184 • RQE 8474</p>
+                    <p class="font-semibold text-slate-900">Dr. Flávio Madeira</p>
+                    <p class="text-xs text-slate-500">Urologia • CRM: 9165/GO • RQE 5858</p>
                 </div>
                 <p class="text-xs text-slate-500 text-center">© 2025. Cirurgia Robótica em Urologia. Conteúdo informativo, não substitui consulta médica.</p>
+            </div>
+            <div class="border-t border-slate-200 mt-6 pt-5 text-center">
+                <p class="text-[11px] text-slate-400">© 2025 <a href="https://www.elevasolucoes.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-slate-500 hover:text-[#0a66c2] transition-colors">Eleva Soluções</a>. Todos os direitos reservados. Desenvolvido por <a href="https://www.linkedin.com/in/gabriel-rizzato/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="font-medium text-slate-500 hover:text-[#0a66c2] transition-colors">Gabriel Rizzato</a>.</p>
             </div>
         </div>
     </footer>
@@ -486,7 +589,7 @@
 
     <script>
         (() => {
-            const WHATSAPP_NUMBER = '556232387800';
+            const WHATSAPP_NUMBER = '5562999789482';
 
             const btn = document.getElementById('wa-button');
             const modal = document.getElementById('wa-modal');
@@ -579,7 +682,20 @@
                 if (!valid) return;
 
                 const texto = `Olá, Dr. Flávio!\n\n*Nome:* ${nomeVal}\n*Telefone:* ${telVal}\n*Motivo:* ${motivoVal}\n*Mensagem:* ${msgVal || '—'}\n\nEnviado pelo site.`;
-                const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+
+                const _trackingKeys = ['gclid', 'fbclid', 'ttclid', 'msclkid'];
+                const _urlParams = new URLSearchParams(window.location.search);
+                let _rawId = null;
+                for (const k of _trackingKeys) {
+                    const v = _urlParams.get(k) || localStorage.getItem(k);
+                    if (v) { _rawId = v; break; }
+                }
+                const ticket = _rawId && _rawId.length > 26
+                    ? _rawId.slice(26, 32).toUpperCase()
+                    : null;
+                const textoFinal = ticket ? `${texto}\n*id: ${ticket}*` : texto;
+
+                const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(textoFinal)}`;
 
                 const submitBtn = document.getElementById('wa-submit');
                 submitBtn.innerHTML = `<svg class="animate-spin w-5 h-5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.3"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg> Abrindo...`;
@@ -605,5 +721,44 @@
         })();
     </script>
 
-</body>
-</html>
+    <!-- FORMAÇÃO TOGGLE -->
+    <script>
+        function toggleFormacao() {
+            const panel = document.getElementById('formacao-panel');
+            const icon  = document.getElementById('icon-formacao');
+            const btn   = document.getElementById('btn-formacao');
+            const open  = panel.style.maxHeight !== '0px' && panel.style.maxHeight !== '';
+
+            if (open) {
+                panel.style.maxHeight = '0';
+                panel.style.opacity   = '0';
+                icon.style.transform  = 'rotate(0deg)';
+                btn.querySelector('span') && (btn.querySelector('span').textContent = '');
+                btn.childNodes[1] && (btn.childNodes[1].textContent = ' Ver formação acadêmica');
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+                panel.style.opacity   = '1';
+                icon.style.transform  = 'rotate(180deg)';
+            }
+        }
+    </script>
+
+    <!-- SCROLL REVEAL OBSERVER -->
+    <script>
+        (() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+                .forEach(el => observer.observe(el));
+        })();
+    </script>
+
+</div>
+<!-- /lp-flavio -->
