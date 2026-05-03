@@ -1,44 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Flávio Madeira - Urologista em Goiânia | Consulta Particular Online e Presencial</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+<!-- LP Consulta Urologista — embed WordPress/Elementor — by Gabriel Rizzato -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: { primary: '#0a66c2', darkblue: '#0a2540' },
+                fontFamily: { sans: ['Inter', 'sans-serif'] }
+            }
         }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #0a66c2, #0a2540);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .modal-enter { opacity: 0; transform: translateY(16px) scale(0.96); }
-        .modal-enter-active { opacity: 1; transform: translateY(0) scale(1); transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1); }
-        .modal-leave-active { opacity: 0; transform: translateY(16px) scale(0.96); transition: all 200ms cubic-bezier(0.4, 0, 1, 1); }
-        select { background-image: none; }
-    </style>
-</head>
-<body id="lp-flavio" class="bg-white text-gray-800 antialiased">
+    }
+</script>
+<style>
+    #lp-consulta {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    #lp-consulta .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    #lp-consulta .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    #lp-consulta .gradient-text {
+        background: linear-gradient(90deg, #0a66c2, #0a2540);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .modal-enter { opacity: 0; transform: translateY(16px) scale(0.96); }
+    .modal-enter-active { opacity: 1; transform: translateY(0) scale(1); transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1); }
+    .modal-leave-active { opacity: 0; transform: translateY(16px) scale(0.96); transition: all 200ms cubic-bezier(0.4, 0, 1, 1); }
+    select { background-image: none; }
+    @media (prefers-reduced-motion: reduce) {
+        #lp-consulta .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+</style>
+
+<div id="lp-consulta" class="bg-white text-gray-800 antialiased" style="width:100vw;position:relative;margin-left:calc(-50vw + 50%);overflow-x:clip;">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-[72px]">
                 <div class="flex items-center gap-3">
@@ -60,7 +69,7 @@
     </header>
 
     <!-- Hero -->
-    <section class="relative pt-[72px] overflow-hidden">
+    <section class="relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/hero-dr-flavio-urologista.webp" alt="Dr. Flávio Madeira, urologista em Goiânia" class="hidden md:block w-full h-full object-cover object-top">
             <img src="https://drflaviomadeira.com.br/wp-content/uploads/2026/04/hero-mobile-drflavio-cirurgiarobotica2.png" alt="Dr. Flávio Madeira" class="md:hidden w-full h-full object-cover object-top">
@@ -151,7 +160,7 @@
     <!-- Sobre o Médico -->
     <section class="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
                 <div class="reveal relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-[#0a66c2]/20 to-[#0a2540]/20 rounded-[2.5rem] blur-2xl"></div>
                     <div class="relative bg-white p-2 rounded-[2rem] shadow-2xl">
@@ -340,7 +349,7 @@
     <!-- Como funciona -->
     <section id="como-funciona" class="py-20 lg:py-28 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-14 items-center">
+            <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
                 <div>
                     <h2 class="reveal text-3xl lg:text-4xl font-bold text-[#0a2540]">Como funciona na prática</h2>
                     <div class="mt-10 space-y-6">
@@ -640,5 +649,6 @@
         }
     })();
     </script>
-</body>
-</html>
+
+</div>
+<!-- /lp-consulta -->
