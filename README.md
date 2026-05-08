@@ -1,4 +1,4 @@
-# site-drflaviomadeira
+# lp-drflavio-cirurgia-robotica
 
 Landing page de conversão para Dr. Flávio Madeira — urologista especialista em cirurgia robótica em Goiânia (CRM: 9165/GO).
 
@@ -12,7 +12,9 @@ Converter visitantes em agendamentos via WhatsApp, com foco em pacientes com ind
 - JavaScript vanilla inline
 - Sem build, sem npm, sem framework
 
-Abrir `index.html` diretamente no navegador para visualizar.
+## Como usar
+
+Abrir `index.html` diretamente no navegador. Nenhuma instalação necessária.
 
 ## Branches
 
@@ -22,7 +24,18 @@ Abrir `index.html` diretamente no navegador para visualizar.
 | `fork02` | Desenvolvimento ativo |
 | `historico/fork-lp-cirurgiarobotica` | Arquivo histórico (não editar) |
 
+## Estrutura
+
+```
+lp-drflavio-cirurgia-robotica/
+├── index.html              ← página principal (CSS e JS inline)
+├── assets/
+│   ├── icons/              ← sprite SVG + icons.json
+│   └── img/                ← imagens em WebP e originais
+└── botao_wpp/              ← variantes isoladas do botão WhatsApp
+```
+
 ## Documentação
 
-- [CLAUDE.md](CLAUDE.md) — guia para Claude Code (estrutura, padrões, seções)
+- [CLAUDE.md](CLAUDE.md) — estrutura da página, padrões de código, rastreamento do modal
 - [DESIGN.md](DESIGN.md) — tokens de design, componentes, animações

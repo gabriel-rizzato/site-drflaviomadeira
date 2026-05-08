@@ -1,0 +1,7 @@
+.claude/settings.local.json
+historico-drflavio/
+*.zip
+Thumbs.db
+.DS_Store
+*.tmp
+*.bak
